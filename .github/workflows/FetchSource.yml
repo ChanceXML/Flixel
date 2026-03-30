@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       target_repo:
-        description: 'Repository'
+        description: 'Repository (Example: Haxeflixel/flixel)'
         required: true
         type: string
       tag_name:
-        description: 'Release Tag'
+        description: 'Release Tag (Example: 5.6.1)'
         required: true
         type: string
       min_folders:
