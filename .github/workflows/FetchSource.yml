@@ -3,20 +3,20 @@ on:
   workflow_dispatch:
     inputs:
       target_repo:
-        description: 'Repository (e.g., HaxeFlixel/flixel)'
+        description: 'Repository'
         required: true
         type: string
       tag_name:
-        description: 'Release Tag (e.g., 5.6.1)'
+        description: 'Release Tag'
         required: true
         type: string
       min_folders:
-        description: 'Minimum folders required to count as the root'
+        description: 'Minimum folders required'
         required: true
         type: string
         default: '2'
       target_branch:
-        description: 'Branch to put the source code in'
+        description: 'Branch'
         required: true
         type: string
         default: 'main'
@@ -48,7 +48,7 @@ jobs:
             fi
           done
           
-          rsync -av --exclude='.git' "$CURRENT_DIR/" ./
+          rsync -av --exclude='.git' --exclude='.github' "$CURRENT_DIR/" ./
           rm -rf temp_extract source.tar.gz
           
       - name: Commit and Push
